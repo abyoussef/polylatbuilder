@@ -263,6 +263,11 @@ Vec<vec_RR> tools::genRandom( long w, long m, long s , long iter){
         }
         cout << best << "\n";
     }
+    cout << "Polynomial P is " << p << "\n";
+    cout << "Generating vector z in "<<s<<" dimensions :" << "\n";
+    for(long l =0; l< s ; ++l ) {
+        cout <<"        Poly["<<l<<"] = "<<z[l]<<"\n";
+    }
     return genplr(x,k,p,w);
 };
 
@@ -291,6 +296,11 @@ Vec<vec_RR> tools::genKorobov( long w, long m, long s , long iter){
         }
     }
     //cout << best << "\n";
+    cout << "Polynomial P is " << p << "\n";
+    cout << "Generating vector z in "<<s<<" dimensions :" << "\n";
+    for(long l =0; l< s ; ++l ) {
+        cout <<"        Poly["<<l<<"] = "<<x[l]<<"\n";
+    }
     return genplr(x,k,p,w);
 };
 
@@ -322,6 +332,11 @@ Vec<vec_RR> tools::genCBC( long w, long m, long s , long iter){
        	}
         z[l] = fin ;
         // cout << "Step " << l << "  "<< odws << "\n";
+    }
+    cout << "Polynomial P is " << p << "\n";
+    cout << "Generating vector z in "<<s<<" dimensions :" << "\n";
+    for(long l =0; l< s ; ++l ) {
+       	cout <<"       	Poly["<<l<<"] = "<<z[l]<<"\n";
     }
     return genplr(z,k,p,w);
 };
