@@ -17,8 +17,10 @@ The goal of this project is to consctrut polynomial lattice rules, in C++, in or
       g++ -g -O2 -I$path/to/NTL/include main.cpp tools.cpp -o main.exe -L$path/to/NTL/lib -lntl -lgmp -lm
 
 #### Execution 
-Once you the compilation done, you can run the code by executing 
+Once you the compilation done, you can run the code by executing :
+
       ./main.exe
+
 
 It will ask you for parameters : 
 
