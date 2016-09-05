@@ -21,6 +21,7 @@ Once you the compilation done, you can run the code by executing
       ./main.exe
 
 It will ask you for parameters : 
+
       Enter the precision : 
       30
       Enter the power m (such as the number of points is 2^m):
