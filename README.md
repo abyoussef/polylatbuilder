@@ -25,7 +25,7 @@ It will ask you for parameters :
       Enter the precision : 
       30
       Enter the power m (such as the number of points is 2^m):
-      10
+      8
       Enter the dimension :
       5
       Enter the iteration :
@@ -38,6 +38,8 @@ It will ask you for parameters :
 
 Then it will output the modular polynomial and the component of the generating polynomial vector, for example in the precedent case, we will have : 
 
+      Korobov :
+      Number of points 2^8 = 256
       Polynomial P is [1 0 0 1 0 0 0 0 0 0 1]
       Generating vector z in 5 dimensions :
             Poly[0] = [1]
