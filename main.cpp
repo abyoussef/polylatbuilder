@@ -22,7 +22,7 @@ int main(){
     cout << "Enter the iteration :" << "\n"; 
     cin >>iter ;
     cout << "Enter the search type : "<< "\n"; 
-    cout << " CBC for component by component search, Korobov for Korobov PLR, Random for random search"<< "\n";
+    cout << "(CBC for component by component search, Korobov for Korobov PLR, Random for random search)"<< "\n";
     cin >>  answer;  
     cout << "Do you want to output points ? (y/n)"<<"\n";      
     cin >> yon;
