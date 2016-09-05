@@ -42,12 +42,12 @@ Then it will output the modular polynomial and the component of the generating p
 
       Korobov :
       Number of points 2^8 = 256
-      Polynomial P is [1 0 0 1 0 0 0 0 0 0 1]
+      Polynomial P is [1 0 0 1 0 0 0 0 1]
       Generating vector z in 5 dimensions :
             Poly[0] = [1]
             Poly[1] = [0 0 0 1 0 1 1]
             Poly[2] = [1 0 1 1 0 1 1]
-            Poly[3] = [1 0 1 0 0 1 0 1 1]
+            Poly[3] = [1 0 0 0 1 0 1 1]
             Poly[4] = [0 0 1 1 1 1 1]
 
 #### Plot 
