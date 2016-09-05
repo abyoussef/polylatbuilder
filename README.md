@@ -6,7 +6,7 @@ _A code for constructing rank-1 polynomial lattice rules_
 This project is part of my 4-months research internship at DIRO's optimization and simulation laboratory, conducted under the supervision of Pierre L'Ecuyer and cosupervised by David Munger. 
 
 Like lattice rules, polynomial lattice rules are among the [quasi-Monte Carlo methods](https://en.wikipedia.org/wiki/Quasi-Monte_Carlo_method), which are used as an alternative to Monte Carlo methods to integrate multidimensional functions. 
-The goal of this project is to consctrut polynomial lattice rules, in C++, in order to be integrated in [Lattice Builder software](https://github.com/umontreal-simul/latbuilder). 
+The goal of this project is to construct polynomial lattice rules, in C++, in order to be integrated in [Lattice Builder software](https://github.com/umontreal-simul/latbuilder). 
 
 #### Dependency 
 
