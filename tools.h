@@ -1,6 +1,6 @@
 #ifndef TOOLS_H
 #define TOOLS_H
-
+#include <string>
 #include <iostream>
 
 // NTL libraries used :
@@ -37,8 +37,10 @@ public:
     static Vec<vec_RR> genRandom( long w, long m, long s, long iter );
     static Vec<vec_RR> genKorobov( long w, long m, long s, long iter );
     static Vec<vec_RR> genCBC( long w, long m, long s, long iter);
+    
+    static Vec<vec_RR> gen(long w,long m,long s,long iter,const string& c);
 
-    static void outputPLR( const Vec<vec_RR>& plr, long w);
+    static void outputPLR( const Vec<vec_RR>& plr, long w, const string& yon);
 };
 
 #endif

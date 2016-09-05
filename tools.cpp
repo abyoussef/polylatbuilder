@@ -1,5 +1,6 @@
 #include "tools.h"
 #include <iostream>
+#include <string>
 
 // NTL libraries used :
 #include <NTL/GF2X.h>
@@ -12,6 +13,12 @@
 #include <NTL/vector.h>
 using namespace std;
 using namespace NTL;
+
+const string Korobov = "Korobov";
+const string CBC = "CBC";
+const string Random = "Random";
+const string Yes = "y"; 
+const string No  = "n"; 
 
 vec_GF2     tools::coeffVector( const GF2X& q, long n){
     vec_GF2 v;
@@ -76,7 +83,6 @@ vec_GF2X    tools::genk( long m){
     p.kill();
     return k;
 };
-
 
 
 void        tools::productMod(vec_GF2X& x, const GF2X& q, const vec_GF2X& v, const GF2X& f){
@@ -261,7 +267,7 @@ Vec<vec_RR> tools::genRandom( long w, long m, long s , long iter){
             best =odws;
             x=z;
         }
-        cout << best << "\n";
+        //cout << best << "\n";
     }
     cout << "Polynomial P is " << p << "\n";
     cout << "Generating vector z in "<<s<<" dimensions :" << "\n";
@@ -276,6 +282,7 @@ Vec<vec_RR> tools::genKorobov( long w, long m, long s , long iter){
     Vec<vec_RR> plr;
     vec_GF2X k = tools::genk(m);
     GF2X p = BuildSparseIrred_GF2X(m);
+    GF2XModulus F(p);
     z.SetLength(s);
     RR best(0);
     RR odws(0);
@@ -283,7 +290,8 @@ Vec<vec_RR> tools::genKorobov( long w, long m, long s , long iter){
         set(z[0]);
         z[1] = random_GF2X( m );
         for(long l = 2; l<s ; ++l){
-            z[l] = z[l-1] * z[1];
+            //z[l] = z[l-1] * z[1];
+	    MulMod(z[l], z[l-1], z[1], F);	
             //temp = random_GF2X( m );
             //div(z[l], temp, GCD( temp, p) );
         }
@@ -341,17 +349,33 @@ Vec<vec_RR> tools::genCBC( long w, long m, long s , long iter){
     return genplr(z,k,p,w);
 };
 
-void        tools::outputPLR( const Vec<vec_RR>& plr, long w){
-    long N,s;
 
-    RR::SetOutputPrecision(w);
-    N = plr.length();
-    s = plr[0].length();
+Vec<vec_RR> tools::gen( long w, long m, long s, long iter, const string& c) {
+	if(c =="Korobov") {
+		return genKorobov(w,m,s,iter); 
+	}else if( c =="CBC") {
+		return genCBC(w,m,s,iter); 
+	}else if( c =="Random") {
+		return genRandom(w,m,s,iter); 
+	}else{
+		return genRandom(w,m,s,iter);
+	}
+}
 
-    for(long l = 0; l< s ; ++l){
-        for(long i = 0; i<plr.length() ; ++i){
-            cout << plr[i][l] << "  ";
-        }
-        cout << "\n";
-    }
+void        tools::outputPLR( const Vec<vec_RR>& plr, long w, const string& yon){
+    if(yon == Yes){
+	long N,s;
+
+    	RR::SetOutputPrecision(w);
+    	N = plr.length();
+    	s = plr[0].length();
+
+    	for(long l = 0; l< s ; ++l){
+        	for(long i = 0; i<plr.length() ; ++i){
+            		cout << plr[i][l] << "  ";
+        	}
+        	cout << "\n";
+    	}
+
+    }    
 };
